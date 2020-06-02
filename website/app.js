@@ -15,9 +15,21 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 //console.log(d);
 
-
 const getWeatherData = async (URL, zip, key) =>{ 
     const request = await fetch(URL+zip+key);
+    try {
+    // Transform into JSON
+    const allData = await request.json();
+    console.log(allData);
+    }
+    catch(error) {
+      console.log("error", error);
+      // appropriately handle the error
+    }
+  }
+
+  const startData = async (url = "") =>{ 
+    const request = await fetch("/test");
     try {
     // Transform into JSON
     const allData = await request.json();
