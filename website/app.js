@@ -37,11 +37,10 @@ const showData = async (url = "") =>{
     // Transform into JSON
     const allData = await request.json();
     //set html to display latest post
-    if(allData[0] != "empty"){
-      document.getElementById('temp').innerHTML = "Temp: " + allData[allData.length - 1].temp + "&deg;F";
-      document.getElementById('content').innerHTML = "Feeling: " + allData[allData.length - 1].response;
-      document.getElementById('date').innerHTML = "Date: " +allData[allData.length - 1].date;
-    }
+    document.getElementById('temp').innerHTML = "Temp: " + allData.temp + "&deg;F";
+    document.getElementById('content').innerHTML = "Feeling: " + allData.response;
+    document.getElementById('date').innerHTML = "Date: " +allData.date;
+    
   }
   catch(error) {
       console.log("error", error);
@@ -80,4 +79,4 @@ function getPostGet(){
 }
 
 //show data on refresh
-showData();
+//showData();
